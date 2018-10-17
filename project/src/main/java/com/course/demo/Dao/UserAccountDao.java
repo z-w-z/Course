@@ -4,4 +4,5 @@ import com.course.demo.Entity.UserAccountEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface UserAccountDao extends JpaRepository<UserAccountEntity,Integer> {
+    UserAccountEntity findById(int id);
 }

@@ -10,4 +10,6 @@ public interface UserDao extends JpaRepository<UserEntity,Integer> {
     UserEntity findByPhone(String phone);
 
     List<UserEntity> findByVip(int vip);
+    //List<UserEntity> findAll();
+
 }
