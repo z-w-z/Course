@@ -27,6 +27,7 @@ public class CoursePrivService {
 
         for(CoursePrivateEntity coursePrivateEntity:coursePrivateEntities){
             //加入coursePrivDTOS
+            teacherService.getTeacherById(coursePrivateEntity.getTeacherId());
         }
         return coursePrivDTOS;
     }

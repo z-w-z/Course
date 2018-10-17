@@ -29,7 +29,6 @@ public class CoursePrivHistoryService {
 
         //因为数据库是升序，取最后一行即可
         return coursePrivHistoryEntities.get(coursePrivHistoryEntities.size()-1);
-
     }
 
     //删除一系列的历史信息表，锁定一个userId和orderPrivId
