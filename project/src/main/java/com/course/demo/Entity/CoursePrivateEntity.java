@@ -8,7 +8,7 @@ public class CoursePrivateEntity {
     private int id;
     private String name;
     private Integer price;
-    private String teacherIds;
+    private Integer teacherId;
 
     @Id
     @Column(name = "id")
@@ -41,13 +41,13 @@ public class CoursePrivateEntity {
     }
 
     @Basic
-    @Column(name = "teacher_ids")
-    public String getTeacherIds() {
-        return teacherIds;
+    @Column(name = "teacher_id")
+    public Integer getTeacherId() {
+        return teacherId;
     }
 
-    public void setTeacherIds(String teacherIds) {
-        this.teacherIds = teacherIds;
+    public void setTeacherId(Integer teacherId) {
+        this.teacherId = teacherId;
     }
 
     @Override
@@ -60,7 +60,7 @@ public class CoursePrivateEntity {
         if (id != that.id) return false;
         if (name != null ? !name.equals(that.name) : that.name != null) return false;
         if (price != null ? !price.equals(that.price) : that.price != null) return false;
-        if (teacherIds != null ? !teacherIds.equals(that.teacherIds) : that.teacherIds != null) return false;
+        if (teacherId != null ? !teacherId.equals(that.teacherId) : that.teacherId != null) return false;
 
         return true;
     }
@@ -70,7 +70,7 @@ public class CoursePrivateEntity {
         int result = id;
         result = 31 * result + (name != null ? name.hashCode() : 0);
         result = 31 * result + (price != null ? price.hashCode() : 0);
-        result = 31 * result + (teacherIds != null ? teacherIds.hashCode() : 0);
+        result = 31 * result + (teacherId != null ? teacherId.hashCode() : 0);
         return result;
     }
 }
