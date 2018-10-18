@@ -44,7 +44,16 @@ public class UserService {
     //添加一个User，微信读入
 
     //3.删除用户
-
+    public boolean removeUser(int id){
+        try{
+            userDao.deleteById(id);
+        }
+        catch (Exception e){
+            System.out.println("删除一个用户出错："+e.getCause()+" "+e.getMessage());
+            return  false;
+        }
+        return  true;
+    }
     //4.修改用户信息
 
 

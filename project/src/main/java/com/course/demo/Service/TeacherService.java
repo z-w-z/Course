@@ -46,6 +46,15 @@ public class TeacherService {
         return true;
     }
     //3.删除老师
-
+    public boolean removeTeacher(int id){
+        try {
+            teacherDao.deleteById(id);
+        }
+        catch (Exception e){
+            System.out.println("删除一个老师出错："+e.getCause()+" "+e.getMessage());
+            return  false;
+        }
+        return  true;
+    }
     //4.修改老师信息
 }
