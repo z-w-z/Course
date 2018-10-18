@@ -6,8 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
-
-import java.sql.Timestamp;
+import java.util.Date;
 import java.util.List;
 @Service
 public class PayInfoService {
@@ -24,12 +23,12 @@ public class PayInfoService {
         return new PayInfoEntity();
     }
     //通过user_id找支付信息
-    public List<PayInfoEntity> listAllPayInfoByUserId(int user_id){
+    public List<PayInfoEntity> listPayInfoByUserId(int user_id){
         return payInfoDao.findByUserId(user_id);
     }
     //通过时间找支付信息
-    public List<PayInfoEntity> listAllPayInfoByDateTime(Timestamp timestamp){
-        return payInfoDao.findByDateTime(timestamp);
+    public List<PayInfoEntity> listPayInfoByDateTime(Date dateTime){
+        return payInfoDao.findByDate(dateTime);
     }
     //2.添加支付信息
 

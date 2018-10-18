@@ -9,7 +9,7 @@ public class CoursePubDTO {
     private String name;
     private String type;
     private Integer maxPerson;
-    private BigDecimal price;
+    private Integer price;
     private String dateRange;
     private String addr;
     private String intro;
@@ -60,11 +60,11 @@ public class CoursePubDTO {
         this.maxPerson = maxPerson;
     }
 
-    public BigDecimal getPrice() {
+    public Integer getPrice() {
         return price;
     }
 
-    public void setPrice(BigDecimal price) {
+    public void setPrice(Integer price) {
         this.price = price;
     }
 

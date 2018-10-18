@@ -1,7 +1,6 @@
 package com.course.demo.Entity;
 
 import javax.persistence.*;
-import java.math.BigDecimal;
 
 @Entity
 @Table(name = "course_public", schema = "course", catalog = "")
@@ -11,7 +10,7 @@ public class CoursePublicEntity {
     private String name;
     private String type;
     private Integer maxPerson;
-    private BigDecimal price;
+    private Integer price;
     private String dateRange;
     private String addr;
     private String intro;
@@ -68,11 +67,11 @@ public class CoursePublicEntity {
 
     @Basic
     @Column(name = "price")
-    public BigDecimal getPrice() {
+    public Integer getPrice() {
         return price;
     }
 
-    public void setPrice(BigDecimal price) {
+    public void setPrice(Integer price) {
         this.price = price;
     }
 
