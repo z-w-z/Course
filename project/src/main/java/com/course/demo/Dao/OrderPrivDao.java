@@ -10,4 +10,6 @@ public interface OrderPrivDao extends JpaRepository<OrderPrivateEntity,OrderPriv
     List<OrderPrivateEntity> findByCoursePrivId(int course_priv_id);
     List<OrderPrivateEntity> findByUserId(int user_id);
     List<OrderPrivateEntity> findByCoursePrivIdAndUserId(int course_priv_id,int user_id);
+
+    void deleteByCoursePrivIdAndUserId(int course_priv_id,int user_id);
 }

@@ -31,8 +31,27 @@ public class PayInfoService {
         return payInfoDao.findByDate(dateTime);
     }
     //2.添加支付信息
-
+    //添加一个订单
+    public boolean addPayInfo(PayInfoEntity payInfoEntity){
+        try{
+            payInfoDao.save(payInfoEntity);
+        }
+        catch(Exception e){
+            System.out.println("添加支付信息出错："+e.getCause()+" "+e.getMessage());
+            return false;
+        }
+        return true;
+    }
     //3.删除支付信息
-
+    public boolean removePayInfo(int id){
+        try {
+            payInfoDao.deleteById(id);
+        }
+        catch (Exception e){
+            System.out.println("删除一个支付信息出错："+e.getCause()+" "+e.getMessage());
+            return false;
+        }
+        return true;
+    }
     //4.修改支付信息
 }

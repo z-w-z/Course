@@ -30,8 +30,26 @@ public class OrderPubService {
         return orderPubDao.findByCoursePubIdAndUserId(course_pub_id, user_id);
     }
     //2.添加公共课订单
-
+    public boolean addOrderPub(OrderPublicEntity orderPublicEntity){
+        try{
+            orderPubDao.save(orderPublicEntity);
+        }
+        catch (Exception e){
+            System.out.println("添加一个公共课订单出错："+e.getCause()+" "+e.getMessage());
+            return false;
+        }
+        return true;
+    }
     //3.删除公共课订单
-
+    public boolean removeOrderPub(int course_pub_id,int user_id){
+        try {
+            orderPubDao.deleteByCoursePubIdAndUserId(course_pub_id, user_id);
+        }
+        catch (Exception e){
+            System.out.println("删除一个公共课顶点出错："+e.getCause()+" "+e.getMessage());
+            return false;
+        }
+        return true;
+    }
     //4.修改公共课订单
 }

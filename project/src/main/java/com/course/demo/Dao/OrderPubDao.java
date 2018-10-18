@@ -11,4 +11,6 @@ public interface OrderPubDao extends JpaRepository<OrderPublicEntity,OrderPublic
     List<OrderPublicEntity> findByCoursePubId(int course_pub_id);
     List<OrderPublicEntity> findByUserId(int user_id);
     List<OrderPublicEntity> findByCoursePubIdAndUserId(int course_pub_id,int user_id);
+
+    void deleteByCoursePubIdAndUserId(int course_pub_id,int user_id);
 }

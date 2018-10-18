@@ -31,8 +31,26 @@ public class OrderPrivService {
         return orderPrivDao.findByCoursePrivIdAndUserId(course_priv_id, user_id);
     }
     //2.添加私教课
-
+    public boolean addOrderPriv(OrderPrivateEntity orderPrivateEntity){
+        try {
+            orderPrivDao.save(orderPrivateEntity);
+        }
+        catch (Exception e){
+            System.out.println("添加一个私教课订单出错："+e.getCause()+" "+e.getMessage());
+            return false;
+        }
+        return true;
+    }
     //3.删除私教课
-
+    public boolean removeOrderPriv(int course_priv_id,int user_id){
+        try{
+            orderPrivDao.deleteByCoursePrivIdAndUserId(course_priv_id, user_id);
+        }
+        catch (Exception e){
+            System.out.println("删除一个私教课订单出错："+e.getCause()+" "+e.getMessage());
+            return false;
+        }
+        return true;
+    }
     //4.修改私教课
 }
