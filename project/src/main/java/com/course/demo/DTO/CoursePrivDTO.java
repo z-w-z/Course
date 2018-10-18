@@ -6,7 +6,7 @@ public class CoursePrivDTO {
     private int id;
     private String name;
     private Integer price;
-    private String teacherId;
+    private Integer teacherId;
 
     //老师基本信息
     private String teacherName;
@@ -38,12 +38,12 @@ public class CoursePrivDTO {
         this.price = price;
     }
 
-    public String getTeacherIds() {
+    public Integer getTeacherId() {
         return teacherId;
     }
 
-    public void setTeacherIds(String teacherIds) {
-        this.teacherId = teacherIds;
+    public void setTeacherId(Integer teacherId) {
+        this.teacherId = teacherId;
     }
 
     public String getTeacherName() {
