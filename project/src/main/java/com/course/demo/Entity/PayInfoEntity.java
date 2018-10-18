@@ -1,7 +1,6 @@
 package com.course.demo.Entity;
 
 import javax.persistence.*;
-import java.math.BigDecimal;
 import java.sql.Timestamp;
 
 @Entity
@@ -10,7 +9,7 @@ public class PayInfoEntity {
     private int id;
     private Integer userId;
     private Timestamp date;
-    private BigDecimal payMoney;
+    private Integer payMoney;
 
     @Id
     @Column(name = "id")
@@ -44,11 +43,11 @@ public class PayInfoEntity {
 
     @Basic
     @Column(name = "pay_money")
-    public BigDecimal getPayMoney() {
+    public Integer getPayMoney() {
         return payMoney;
     }
 
-    public void setPayMoney(BigDecimal payMoney) {
+    public void setPayMoney(Integer payMoney) {
         this.payMoney = payMoney;
     }
 

@@ -1,13 +1,12 @@
 package com.course.demo.Entity;
 
 import javax.persistence.*;
-import java.math.BigDecimal;
 
 @Entity
 @Table(name = "user_account", schema = "course", catalog = "")
 public class UserAccountEntity {
     private int id;
-    private BigDecimal balance;
+    private Integer balance;
 
     @Id
     @Column(name = "id")
@@ -21,11 +20,11 @@ public class UserAccountEntity {
 
     @Basic
     @Column(name = "balance")
-    public BigDecimal getBalance() {
+    public Integer getBalance() {
         return balance;
     }
 
-    public void setBalance(BigDecimal balance) {
+    public void setBalance(Integer balance) {
         this.balance = balance;
     }
 
