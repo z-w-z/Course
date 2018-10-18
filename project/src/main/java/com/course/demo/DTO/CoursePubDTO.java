@@ -13,6 +13,7 @@ public class CoursePubDTO {
     private String dateRange;
     private String addr;
     private String intro;
+    private String whatDay;
 
     //老师信息
     private String teacherName;
@@ -90,6 +91,14 @@ public class CoursePubDTO {
 
     public void setIntro(String intro) {
         this.intro = intro;
+    }
+
+    public String getWhatDay() {
+        return whatDay;
+    }
+
+    public void setWhatDay(String whatDay) {
+        this.whatDay = whatDay;
     }
 
     public String getTeacherName() {
