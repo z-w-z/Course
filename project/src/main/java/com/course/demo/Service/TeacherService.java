@@ -28,7 +28,7 @@ public class TeacherService {
         return new TeacherEntity();
     }
     //通过name找Teacher
-    public List<TeacherEntity> listAllTeachersByName(String name){
+    public List<TeacherEntity> listTeachersByName(String name){
         return teacherDao.findByName(name);
     }
     //2.添加老师

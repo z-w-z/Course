@@ -19,15 +19,15 @@ public class OrderPrivService {
         return orderPrivDao.findAll(sort);
     }
     //通过course_priv_id查找
-    public  List<OrderPrivateEntity> listAllOrderPrivateByCoursePrivId(int course_priv_id){
+    public  List<OrderPrivateEntity> listOrderPrivateByCoursePrivId(int course_priv_id){
         return orderPrivDao.findByCoursePrivId(course_priv_id);
     }
     //通过user_id查找
-    public List<OrderPrivateEntity> listAllOrderPrivateByUserId(int user_id){
+    public List<OrderPrivateEntity> listOrderPrivateByUserId(int user_id){
         return orderPrivDao.findByUserId(user_id);
     }
     //通过course_priv_id和user_id联合查找
-    public List<OrderPrivateEntity> listAllOrderPrivateByCoursePrivIdAndUserId(int course_priv_id,int user_id){
+    public List<OrderPrivateEntity> listOrderPrivateByCoursePrivIdAndUserId(int course_priv_id,int user_id){
         return orderPrivDao.findByCoursePrivIdAndUserId(course_priv_id, user_id);
     }
     //2.添加私教课

@@ -34,7 +34,7 @@ public class UserService {
         return new UserEntity();
     }
     //通过VIP找User
-    public List<UserEntity>  listAllUsersByVip(int vip){
+    public List<UserEntity>  listUsersByVip(int vip){
 
         return userDao.findByVip(vip);
     }
