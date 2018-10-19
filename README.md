@@ -39,13 +39,14 @@ price：课程单价
 date_range：具体上课时间
 addr：上课地点
 intro：课程介绍
+what_day：周几
 ```
 ### order_private私教课购买记录
 ```
 字段：
 course_priv_id：私教课id
 user_id：会员id：
-pay_money：付款总额
+pay_money：付款节次
 total_class：剩余节数
 ```
 ### order_public公共课预约记录表
@@ -55,7 +56,7 @@ course_pub_id：课程id
 user_id：会员id
 pay_money：付款总额
 status：课程状态（待上课还是已上课）
-user_number：总参与人数（例如带了一个人就是2）
+people_number：总参与人数（例如带了一个人就是2）
 ```
 ### pay_info 充值记录表
 ```
@@ -90,5 +91,5 @@ email：电子邮箱
 ```
 字段：
 id：唯一标示符
-balance：余额
+balance：剩余节次
 ```
