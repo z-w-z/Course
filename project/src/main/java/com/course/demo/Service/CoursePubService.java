@@ -37,6 +37,7 @@ public class CoursePubService {
             coursePubDTO.setAddr(coursePublicEntity.getAddr());
             coursePubDTO.setIntro(coursePublicEntity.getIntro());
             coursePubDTO.setTeacherId(coursePublicEntity.getTeacherId());
+            coursePubDTO.setWhatDay(coursePublicEntity.getWhatDay());
 
             coursePubDTO.setTeacherName(teacherEntity.getName());
             coursePubDTO.setTeacherIntro(teacherEntity.getIntro());
@@ -69,6 +70,7 @@ public class CoursePubService {
         coursePubDTO.setAddr(coursePublicEntity.getAddr());
         coursePubDTO.setIntro(coursePublicEntity.getIntro());
         coursePubDTO.setTeacherId(coursePublicEntity.getTeacherId());
+        coursePubDTO.setWhatDay(coursePublicEntity.getWhatDay());
 
         coursePubDTO.setTeacherName(teacherEntity.getName());
         coursePubDTO.setTeacherIntro(teacherEntity.getIntro());
@@ -98,6 +100,7 @@ public class CoursePubService {
         coursePubDTO.setAddr(coursePublicEntity.getAddr());
         coursePubDTO.setIntro(coursePublicEntity.getIntro());
         coursePubDTO.setTeacherId(coursePublicEntity.getTeacherId());
+        coursePubDTO.setWhatDay(coursePublicEntity.getWhatDay());
 
         coursePubDTO.setTeacherName(teacherEntity.getName());
         coursePubDTO.setTeacherIntro(teacherEntity.getIntro());
@@ -125,6 +128,7 @@ public class CoursePubService {
             coursePubDTO.setAddr(coursePublicEntity.getAddr());
             coursePubDTO.setIntro(coursePublicEntity.getIntro());
             coursePubDTO.setTeacherId(coursePublicEntity.getTeacherId());
+            coursePubDTO.setWhatDay(coursePublicEntity.getWhatDay());
 
             coursePubDTO.setTeacherName(teacherEntity.getName());
             coursePubDTO.setTeacherIntro(teacherEntity.getIntro());

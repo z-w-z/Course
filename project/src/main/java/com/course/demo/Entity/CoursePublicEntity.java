@@ -14,6 +14,7 @@ public class CoursePublicEntity {
     private String dateRange;
     private String addr;
     private String intro;
+    private String whatDay;
 
     @Id
     @Column(name = "id")
@@ -105,6 +106,16 @@ public class CoursePublicEntity {
         this.intro = intro;
     }
 
+    @Basic
+    @Column(name = "what_day")
+    public String getWhatDay() {
+        return whatDay;
+    }
+
+    public void setWhatDay(String whatDay) {
+        this.whatDay = whatDay;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -121,6 +132,7 @@ public class CoursePublicEntity {
         if (dateRange != null ? !dateRange.equals(that.dateRange) : that.dateRange != null) return false;
         if (addr != null ? !addr.equals(that.addr) : that.addr != null) return false;
         if (intro != null ? !intro.equals(that.intro) : that.intro != null) return false;
+        if (whatDay != null ? !whatDay.equals(that.whatDay) : that.whatDay != null) return false;
 
         return true;
     }
@@ -136,6 +148,7 @@ public class CoursePublicEntity {
         result = 31 * result + (dateRange != null ? dateRange.hashCode() : 0);
         result = 31 * result + (addr != null ? addr.hashCode() : 0);
         result = 31 * result + (intro != null ? intro.hashCode() : 0);
+        result = 31 * result + (whatDay != null ? whatDay.hashCode() : 0);
         return result;
     }
 }
