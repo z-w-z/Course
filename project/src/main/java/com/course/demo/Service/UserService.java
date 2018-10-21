@@ -45,6 +45,11 @@ public class UserService {
 
     //3.删除用户
     public boolean removeUser(int id){
+        if(userDao.findById(id)==null)
+        {
+            System.out.println("删除错误，此用户不存在");
+            return false;
+        }
         try{
             userDao.deleteById(id);
         }
@@ -55,6 +60,81 @@ public class UserService {
         return  true;
     }
     //4.修改用户信息
-
-
+    //修改（更新）微信头像、微信名、微信号暂时不知道怎么写
+    //修改会员等级,找到id对应的支付信息，按vip更新
+    public boolean updateUserVipById(int id,int vip){
+        //看用户是否存在，不存在报错
+        if(userDao.findById(id)==null){
+            System.out.println("修改失败，该用户不存在");
+            return false;
+        }
+        //通过id找到，修改对应信息
+        try {
+            UserEntity userEntity=userDao.findById(id);
+            userEntity.setVip(vip);
+            userDao.save(userEntity);
+        }
+        catch (Exception e){
+            System.out.println("修改用户会员等级出错："+e.getCause()+" "+e.getMessage());
+            return false;
+        }
+        return true;
+    }
+    //修改折扣,找到id对应的支付信息，按discount更新
+    public boolean updateUserDiscountById(int id,int discount){
+        //看用户是否存在，不存在报错
+        if(userDao.findById(id)==null){
+            System.out.println("修改失败，该用户不存在");
+            return false;
+        }
+        //通过id找到，修改对应信息
+        try {
+            UserEntity userEntity=userDao.findById(id);
+            userEntity.setDiscount(discount);
+            userDao.save(userEntity);
+        }
+        catch (Exception e){
+            System.out.println("修改用户折扣出错："+e.getCause()+" "+e.getMessage());
+            return false;
+        }
+        return true;
+    }
+    //修改电话,找到id对应的支付信息，按phone更新
+    public boolean updateUserPhoneById(int id,String phone){
+        //看用户是否存在，不存在报错
+        if(userDao.findById(id)==null){
+            System.out.println("修改失败，该用户不存在");
+            return false;
+        }
+        //通过id找到，修改对应信息
+        try {
+            UserEntity userEntity=userDao.findById(id);
+            userEntity.setPhone(phone);
+            userDao.save(userEntity);
+        }
+        catch (Exception e){
+            System.out.println("修改用户电话出错："+e.getCause()+" "+e.getMessage());
+            return false;
+        }
+        return true;
+    }
+    //修改邮箱,找到id对应的支付信息，按email更新
+    public boolean updateUserEmailById(int id,String email){
+        //看用户是否存在，不存在报错
+        if(userDao.findById(id)==null){
+            System.out.println("修改失败，该用户不存在");
+            return false;
+        }
+        //通过id找到，修改对应信息
+        try {
+            UserEntity userEntity=userDao.findById(id);
+            userEntity.setEmail(email);
+            userDao.save(userEntity);
+        }
+        catch (Exception e){
+            System.out.println("修改用户邮箱出错："+e.getCause()+" "+e.getMessage());
+            return false;
+        }
+        return true;
+    }
 }

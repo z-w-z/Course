@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
+import java.sql.Timestamp;
 import java.util.Date;
 import java.util.List;
 @Service
@@ -33,7 +34,20 @@ public class PayInfoService {
     //2.添加支付信息
     //添加一个订单
     public boolean addPayInfo(PayInfoEntity payInfoEntity){
+        //判断输入的user_id是否为空
+        if(payInfoEntity.getUserId()==null){
+            System.out.println("添加失败，该用户为空");
+            return false;
+        }
+        //判断输入的user_id是否存在
+        else if(payInfoDao.findByUserId(payInfoEntity.getUserId())==null){
+            System.out.println("添加失败，该用户不存在");
+            return false;
+        }
         try{
+            //获取当前系统时间
+            Timestamp currentTime=new Timestamp(System.currentTimeMillis());
+            payInfoEntity.setDate(currentTime);
             payInfoDao.save(payInfoEntity);
         }
         catch(Exception e){
@@ -44,6 +58,10 @@ public class PayInfoService {
     }
     //3.删除支付信息
     public boolean removePayInfo(int id){
+        if(payInfoDao.findById(id)==null){
+            System.out.println("删除错误，此支付信息不存在");
+            return false;
+        }
         try {
             payInfoDao.deleteById(id);
         }
@@ -54,4 +72,8 @@ public class PayInfoService {
         return true;
     }
     //4.修改支付信息
+    //慎用！！！
+    //修改用户,找到id对应的支付信息，按user_id更新
+    //修改日期,找到id对应的支付信息，按user_id更新
+    //修改付款数,找到id对应的支付信息，按user_id更新
 }
