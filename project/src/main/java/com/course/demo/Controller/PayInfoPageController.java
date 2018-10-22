@@ -17,4 +17,9 @@ public class PayInfoPageController {
     public boolean addPayInfo(@RequestBody PayInfoEntity payInfoEntity){
         return payInfoService.addPayInfo(payInfoEntity);
     }
+
+    //修改一个支付信息
+    //修改支付用户
+    //修改支付日期
+    //修改支付金额
 }

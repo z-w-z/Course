@@ -3,6 +3,7 @@ package com.course.demo.Controller;
 import com.course.demo.Entity.TeacherEntity;
 import com.course.demo.Service.TeacherService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -17,4 +18,11 @@ public class TeacherPageController {
     public boolean addTeacher(@RequestBody TeacherEntity teacherEntity){
         return  teacherService.addTeacher(teacherEntity);
     }
+
+    //修改一个老师信息
+    //修改老师姓名
+    //修改老师头像
+    //修改老师介绍
+    //修改老师电话
+
 }
