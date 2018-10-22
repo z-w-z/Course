@@ -117,7 +117,13 @@ public class CoursePrivService {
     //新增一节私教课
     //未实现！！！
     public boolean addCoursePriv(CoursePrivateEntity coursePrivateEntity){
-        //判断老师是否存在
+        //判断老师是否存在，不存在就返回false
+        if(teacherService.getTeacherById(coursePrivateEntity.getTeacherId())==null)
+            return false;
+
+        //判断老价格是否为空，不存在就返回false
+        if(coursePrivateEntity.getPrice()==null)
+            return false;
 
         try{
             coursePrivDao.save(coursePrivateEntity);
@@ -132,6 +138,15 @@ public class CoursePrivService {
 
     //修改一节私教课信息
     //未实现！！！
+    public boolean updateCoursePriv(CoursePrivateEntity coursePrivateEntity){
+        try{
+
+        }catch (Exception e){
+            System.out.println("修改私教课信息："+e.getCause()+" "+e.getMessage());
+            return false;
+        }
+        return true;
+    }
 
     //删除一节私教课
     public boolean removeCoursePriv(int id){

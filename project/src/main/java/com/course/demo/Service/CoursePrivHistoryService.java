@@ -46,8 +46,25 @@ public class CoursePrivHistoryService {
     }
 
     //写入一行信息（隐式接口，不直接暴露给前端）
-    //待实现！！！
-    public boolean addCoursePrivHistory(int userId,int orderPrivId){
+    //更新条目待实现！！！
+    public boolean addCoursePrivHistory(CoursePrivHistoryEntity coursePrivHistoryEntity){
+        //需要判断是否存在该条记录
+        //存在，递增节数
+        //不存在，新增条目
+        if(coursePrivHistoryDao.findByUserIdAndOrderPrivId(coursePrivHistoryEntity.getUserId(),coursePrivHistoryEntity.getOrderPrivId())==null){
+            try{
+                coursePrivHistoryDao.save(coursePrivHistoryEntity);
+            }catch (Exception e){
+                System.out.println("添加一个私教信息："+e.getCause()+" "+e.getMessage());
+                return false;
+            }
+        }
+        else{
+            //更新条目
+        }
+
+
+
         return true;
     }
 

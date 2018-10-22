@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 //处理所有公共课信息
+//课程是否在用户端显示，用whatDay标识
 @Service
 public class CoursePubService {
     @Autowired
@@ -142,8 +143,32 @@ public class CoursePubService {
     }
 
     //新增一个公共课
+    //还未实现判空处理
+    public boolean addCoursePublic(CoursePublicEntity coursePublicEntity){
+        //如果添加的课程不存在这个老师返回false
+        if (teacherService.getTeacherById(coursePublicEntity.getTeacherId())==null)
+            return false;
+
+        //如果添加的课程不存在价格返回false
+        if(coursePublicEntity.getPrice()==null)
+            return false;
+
+        try{
+            //对字段的判空处理
+            coursePubDao.save(coursePublicEntity);
+        }catch (Exception e){
+            System.out.println("新增公共课出错："+e.getCause()+" "+e.getMessage());
+            return false;
+        }
+        return true;
+    }
 
     //修改一个公共课
+    //未实现
+    public boolean updateCoursePublic(CoursePublicEntity coursePublicEntity){
+
+        return true;
+    }
 
     //删除一个公共课
     public boolean removeCoursePublic(int id){
