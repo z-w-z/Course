@@ -1,6 +1,5 @@
-package com.course.demo.Controller;
+package com.course.demo.ControllerAdmin;
 
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController

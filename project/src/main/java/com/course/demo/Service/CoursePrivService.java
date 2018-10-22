@@ -91,7 +91,7 @@ public class CoursePrivService {
     }
 
     //通过teacherId查找私教课
-    public List<CoursePrivDTO> getCoursePrivByTeacherId(int teacherId){
+    public List<CoursePrivDTO> listCoursePrivByTeacherId(int teacherId){
         List<CoursePrivateEntity> coursePrivateEntities=coursePrivDao.findByTeacherId(teacherId);
         List<CoursePrivDTO> coursePrivDTOS=new ArrayList<>();
 

@@ -1,4 +1,4 @@
-package com.course.demo.Controller;
+package com.course.demo.ControllerAdmin;
 
 import com.course.demo.Entity.PayInfoEntity;
 import com.course.demo.Service.PayInfoService;

@@ -111,6 +111,37 @@ public class CoursePubService {
         return coursePubDTO;
     }
 
+    //通过whatDay获取公共课信息
+    public List<CoursePubDTO> listCoursePubByWhatDay(String whatDay){
+        List<CoursePublicEntity> coursePublicEntities=coursePubDao.findByWhatDay(whatDay);
+        List<CoursePubDTO> coursePubDTOS=new ArrayList<>();
+
+        for(CoursePublicEntity coursePublicEntity:coursePublicEntities){
+            //获取教师信息
+            TeacherEntity teacherEntity = teacherService.getTeacherById(coursePublicEntity.getTeacherId());
+            //new一个DTO信息
+            CoursePubDTO coursePubDTO=new CoursePubDTO();
+            coursePubDTO.setName(coursePublicEntity.getName());
+            coursePubDTO.setType(coursePublicEntity.getType());
+            coursePubDTO.setMaxPerson(coursePublicEntity.getMaxPerson());
+            coursePubDTO.setPrice(coursePublicEntity.getPrice());
+            coursePubDTO.setDateRange(coursePublicEntity.getDateRange());
+            coursePubDTO.setAddr(coursePublicEntity.getAddr());
+            coursePubDTO.setIntro(coursePublicEntity.getIntro());
+            coursePubDTO.setTeacherId(coursePublicEntity.getTeacherId());
+            coursePubDTO.setWhatDay(whatDay);
+
+            coursePubDTO.setTeacherName(teacherEntity.getName());
+            coursePubDTO.setTeacherIntro(teacherEntity.getIntro());
+            coursePubDTO.setPhone(teacherEntity.getPhone());
+            coursePubDTO.setTeacherUrl(teacherEntity.getTeacherUrl());
+            //将DTO放入容器
+            coursePubDTOS.add(coursePubDTO);
+        }
+
+        return coursePubDTOS;
+    }
+
     //通过teacherId获取对应公共课信息
     public List<CoursePubDTO> listCoursePublicByTeacherId(int teacherId){
         List<CoursePublicEntity> coursePublicEntities=coursePubDao.findByTeacherId(teacherId);

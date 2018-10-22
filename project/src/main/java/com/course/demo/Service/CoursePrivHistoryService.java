@@ -13,6 +13,8 @@ public class CoursePrivHistoryService {
     @Autowired
     CoursePrivHistoryDao coursePrivHistoryDao;
 
+    private String code="delete";
+
     //所有私教课
     public List<CoursePrivHistoryEntity> listAllCoursePrivHistories(){
         return coursePrivHistoryDao.findAll();
@@ -33,7 +35,10 @@ public class CoursePrivHistoryService {
 
     //删除一系列的历史信息表，锁定一个userId和orderPrivId
     //慎用！！！！
-    public boolean removeCoursePrivHistories(int userId,int orderPrivId){
+    public boolean removeCoursePrivHistories(int userId,int orderPrivId,String code){
+        //使用code避免误操作
+        if(code!=this.code)
+            return false;
         try{
             coursePrivHistoryDao.deleteByUserIdAndOrderPrivId(userId,orderPrivId);
         }
@@ -45,7 +50,7 @@ public class CoursePrivHistoryService {
         return true;
     }
 
-    //写入一行信息（隐式接口，不直接暴露给前端）
+    //购买私教写入一行信息
     //更新条目待实现！！！
     public boolean addCoursePrivHistory(CoursePrivHistoryEntity coursePrivHistoryEntity){
         //需要判断是否存在该条记录
@@ -65,6 +70,19 @@ public class CoursePrivHistoryService {
 
 
 
+        return true;
+    }
+
+    //上完一节私教更改一行信息
+    //一次加一节课
+    //未实现
+    public boolean updateCurrentNum(){
+        try{
+
+        }catch (Exception e){
+            System.out.println("修改私教CurrentNum出错"+e.getCause()+" "+e.getMessage());
+            return false;
+        }
         return true;
     }
 

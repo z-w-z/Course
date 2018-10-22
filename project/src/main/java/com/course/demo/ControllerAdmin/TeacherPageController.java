@@ -1,9 +1,8 @@
-package com.course.demo.Controller;
+package com.course.demo.ControllerAdmin;
 
 import com.course.demo.Entity.TeacherEntity;
 import com.course.demo.Service.TeacherService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 
 @RestController

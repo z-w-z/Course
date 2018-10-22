@@ -1,4 +1,4 @@
-package com.course.demo.Controller;
+package com.course.demo.ControllerAdmin;
 
 import com.course.demo.Entity.OrderPrivateEntity;
 import com.course.demo.Service.OrderPrivService;
