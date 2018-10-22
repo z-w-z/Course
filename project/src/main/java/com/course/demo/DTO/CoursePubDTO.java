@@ -1,6 +1,6 @@
 package com.course.demo.DTO;
 
-import java.math.BigDecimal;
+import java.sql.Date;
 
 public class CoursePubDTO {
     //公共课信息
@@ -13,7 +13,8 @@ public class CoursePubDTO {
     private String dateRange;
     private String addr;
     private String intro;
-    private String whatDay;
+    private Date whatDay;
+    private String weekDay;
 
     //老师信息
     private String teacherName;
@@ -93,11 +94,11 @@ public class CoursePubDTO {
         this.intro = intro;
     }
 
-    public String getWhatDay() {
+    public Date getWhatDay() {
         return whatDay;
     }
 
-    public void setWhatDay(String whatDay) {
+    public void setWhatDay(Date whatDay) {
         this.whatDay = whatDay;
     }
 
@@ -131,5 +132,13 @@ public class CoursePubDTO {
 
     public void setPhone(String phone) {
         this.phone = phone;
+    }
+
+    public String getWeekDay() {
+        return weekDay;
+    }
+
+    public void setWeekDay(String weekDay) {
+        this.weekDay = weekDay;
     }
 }

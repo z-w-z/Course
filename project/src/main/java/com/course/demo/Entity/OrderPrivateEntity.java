@@ -8,7 +8,6 @@ import javax.persistence.*;
 public class OrderPrivateEntity {
     private int coursePrivId;
     private int userId;
-    private Integer payMoney;
     private Integer totalClass;
 
     @Id
@@ -32,16 +31,6 @@ public class OrderPrivateEntity {
     }
 
     @Basic
-    @Column(name = "pay_money")
-    public Integer getPayMoney() {
-        return payMoney;
-    }
-
-    public void setPayMoney(Integer payMoney) {
-        this.payMoney = payMoney;
-    }
-
-    @Basic
     @Column(name = "total_class")
     public Integer getTotalClass() {
         return totalClass;
@@ -60,7 +49,6 @@ public class OrderPrivateEntity {
 
         if (coursePrivId != that.coursePrivId) return false;
         if (userId != that.userId) return false;
-        if (payMoney != null ? !payMoney.equals(that.payMoney) : that.payMoney != null) return false;
         if (totalClass != null ? !totalClass.equals(that.totalClass) : that.totalClass != null) return false;
 
         return true;
@@ -70,7 +58,6 @@ public class OrderPrivateEntity {
     public int hashCode() {
         int result = coursePrivId;
         result = 31 * result + userId;
-        result = 31 * result + (payMoney != null ? payMoney.hashCode() : 0);
         result = 31 * result + (totalClass != null ? totalClass.hashCode() : 0);
         return result;
     }

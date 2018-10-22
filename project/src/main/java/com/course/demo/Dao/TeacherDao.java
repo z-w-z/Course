@@ -11,4 +11,5 @@ public interface TeacherDao extends JpaRepository<TeacherEntity,Integer> {
 
     List<TeacherEntity> findByName(String name);
     //List<TeacherEntity> findAll();
+    void deleteById(int id);
 }

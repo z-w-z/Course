@@ -19,28 +19,28 @@ public class CoursePrivPageController {
     @RequestMapping(value = "/listAllCoursePrivate",method = RequestMethod.GET)
     @ResponseBody
     public List<CoursePrivDTO> listAllCoursePrivate(){
-        return coursePrivService.listAllCoursePriv();
+        return coursePrivService.listAllCoursePrivDTO();
     }
 
     //通过teacherId获取公共课程
     @RequestMapping(value = "/listCoursePrivByTeacherId",method = RequestMethod.GET)
     @ResponseBody
     public List<CoursePrivDTO> listCoursePrivByTeacherId(@RequestParam("teacherId") int teacherId){
-        return coursePrivService.listCoursePrivByTeacherId(teacherId);
+        return coursePrivService.listCoursePrivDTOByTeacherId(teacherId);
     }
 
     //通过名字获取公共课程
     @RequestMapping(value = "/getCoursePrivByName",method = RequestMethod.GET)
     @ResponseBody
     public CoursePrivDTO getCoursePrivByName(@RequestParam("name") String name){
-        return coursePrivService.getCoursePrivByName(name);
+        return coursePrivService.getCoursePrivDTOByName(name);
     }
 
     //通过ID获取公共课程
     @RequestMapping(value = "/getCoursePrivById",method = RequestMethod.GET)
     @ResponseBody
     public CoursePrivDTO getCoursePrivById(@RequestParam("id") int id){
-        return coursePrivService.getCoursePrivById(id);
+        return coursePrivService.getCoursePrivDTOById(id);
     }
 
     //=============================================删除

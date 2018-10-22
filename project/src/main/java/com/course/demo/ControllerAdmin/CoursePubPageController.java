@@ -6,6 +6,7 @@ import com.course.demo.Service.CoursePubService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.sql.Date;
 import java.util.List;
 
 @RestController
@@ -25,7 +26,7 @@ public class CoursePubPageController {
     //通过哪一天筛选公共课程
     @RequestMapping(value = "/listCoursePubByWhatDay",method = RequestMethod.GET)
     @ResponseBody
-    public List<CoursePubDTO> listCoursePubByWhatDay(@RequestParam("whatDay") String whatDay){
+    public List<CoursePubDTO> listCoursePubByWhatDay(@RequestParam("whatDay") Date whatDay){
         return coursePubService.listCoursePubByWhatDay(whatDay);
     }
 

@@ -21,7 +21,7 @@ public class CoursePrivService {
     TeacherService teacherService;
 
     //查找所有私教课
-    public List<CoursePrivDTO> listAllCoursePriv(){
+    public List<CoursePrivDTO> listAllCoursePrivDTO(){
         List<CoursePrivateEntity> coursePrivateEntities=coursePrivDao.findAll();
         List<CoursePrivDTO> coursePrivDTOS=new ArrayList<>();
 
@@ -45,7 +45,7 @@ public class CoursePrivService {
     }
 
     //通过id查找私教课
-    public CoursePrivDTO getCoursePrivById(int id){
+    public CoursePrivDTO getCoursePrivDTOById(int id){
         CoursePrivateEntity coursePrivateEntity=coursePrivDao.findById(id);
 
         //如果不存在该条记录返回一个空对象
@@ -68,7 +68,7 @@ public class CoursePrivService {
     }
 
     //通过name查找私教课
-    public CoursePrivDTO getCoursePrivByName(String name){
+    public CoursePrivDTO getCoursePrivDTOByName(String name){
         CoursePrivateEntity coursePrivateEntity=coursePrivDao.findByName(name);
 
         //如果不存在该条记录返回一个空对象
@@ -91,7 +91,7 @@ public class CoursePrivService {
     }
 
     //通过teacherId查找私教课
-    public List<CoursePrivDTO> listCoursePrivByTeacherId(int teacherId){
+    public List<CoursePrivDTO> listCoursePrivDTOByTeacherId(int teacherId){
         List<CoursePrivateEntity> coursePrivateEntities=coursePrivDao.findByTeacherId(teacherId);
         List<CoursePrivDTO> coursePrivDTOS=new ArrayList<>();
 
@@ -115,7 +115,6 @@ public class CoursePrivService {
     }
 
     //新增一节私教课
-    //未实现！！！
     public boolean addCoursePriv(CoursePrivateEntity coursePrivateEntity){
         //判断老师是否存在，不存在就返回false
         if(teacherService.getTeacherById(coursePrivateEntity.getTeacherId())==null)

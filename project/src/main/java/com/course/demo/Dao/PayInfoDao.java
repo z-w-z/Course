@@ -11,4 +11,5 @@ public interface PayInfoDao extends JpaRepository<PayInfoEntity,Integer> {
 
     List<PayInfoEntity> findByUserId(int user_id);
     List<PayInfoEntity> findByDate(Date dateTime);
+    void deleteById(int id);
 }

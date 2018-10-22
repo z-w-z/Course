@@ -4,8 +4,8 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "order_public", schema = "course", catalog = "")
-@IdClass(OrderPublicEntityPK.class)
 public class OrderPublicEntity {
+    private int id;
     private int coursePubId;
     private int userId;
     private Integer payMoney;
@@ -13,6 +13,16 @@ public class OrderPublicEntity {
     private Integer peopleNumber;
 
     @Id
+    @Column(name = "id")
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    @Basic
     @Column(name = "course_pub_id")
     public int getCoursePubId() {
         return coursePubId;
@@ -22,7 +32,7 @@ public class OrderPublicEntity {
         this.coursePubId = coursePubId;
     }
 
-    @Id
+    @Basic
     @Column(name = "user_id")
     public int getUserId() {
         return userId;
@@ -69,6 +79,7 @@ public class OrderPublicEntity {
 
         OrderPublicEntity that = (OrderPublicEntity) o;
 
+        if (id != that.id) return false;
         if (coursePubId != that.coursePubId) return false;
         if (userId != that.userId) return false;
         if (payMoney != null ? !payMoney.equals(that.payMoney) : that.payMoney != null) return false;
@@ -80,7 +91,8 @@ public class OrderPublicEntity {
 
     @Override
     public int hashCode() {
-        int result = coursePubId;
+        int result = id;
+        result = 31 * result + coursePubId;
         result = 31 * result + userId;
         result = 31 * result + (payMoney != null ? payMoney.hashCode() : 0);
         result = 31 * result + (status != null ? status.hashCode() : 0);

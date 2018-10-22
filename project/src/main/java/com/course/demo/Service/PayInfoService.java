@@ -31,37 +31,35 @@ public class PayInfoService {
     public List<PayInfoEntity> listPayInfoByDateTime(Date dateTime){
         return payInfoDao.findByDate(dateTime);
     }
+
     //2.添加支付信息
     //添加一个订单
     public boolean addPayInfo(PayInfoEntity payInfoEntity){
         //判断输入的user_id是否为空
-        if(payInfoEntity.getUserId()==null){
-            System.out.println("添加失败，该用户为空");
+        if(payInfoEntity.getUserId()==null)
             return false;
-        }
         //判断输入的user_id是否存在
-        else if(payInfoDao.findByUserId(payInfoEntity.getUserId())==null){
-            System.out.println("添加失败，该用户不存在");
+        if(payInfoDao.findByUserId(payInfoEntity.getUserId())==null)
             return false;
-        }
-        try{
-            //获取当前系统时间
-            Timestamp currentTime=new Timestamp(System.currentTimeMillis());
-            payInfoEntity.setDate(currentTime);
-            payInfoDao.save(payInfoEntity);
-        }
-        catch(Exception e){
-            System.out.println("添加支付信息出错："+e.getCause()+" "+e.getMessage());
-            return false;
+
+        //如果前端没有传回Date数据，系统自动获取当前时间
+        if(payInfoEntity.getDate()==null){
+            try{
+                //获取当前系统时间
+                Timestamp currentTime=new Timestamp(System.currentTimeMillis());
+                payInfoEntity.setDate(currentTime);
+                payInfoDao.save(payInfoEntity);
+            }
+            catch(Exception e){
+                System.out.println("添加支付信息出错："+e.getCause()+" "+e.getMessage());
+                return false;
+            }
         }
         return true;
     }
+
     //3.删除支付信息
     public boolean removePayInfo(int id){
-        if(payInfoDao.findById(id)==null){
-            System.out.println("删除错误，此支付信息不存在");
-            return false;
-        }
         try {
             payInfoDao.deleteById(id);
         }
@@ -71,6 +69,7 @@ public class PayInfoService {
         }
         return true;
     }
+
     //4.修改支付信息
     //慎用！！！
     //修改用户,找到id对应的支付信息，按user_id更新

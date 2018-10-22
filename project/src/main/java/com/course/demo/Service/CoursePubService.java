@@ -4,9 +4,11 @@ import com.course.demo.DTO.CoursePubDTO;
 import com.course.demo.Dao.CoursePubDao;
 import com.course.demo.Entity.CoursePublicEntity;
 import com.course.demo.Entity.TeacherEntity;
+import com.course.demo.Util.DataHandleUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -39,6 +41,7 @@ public class CoursePubService {
             coursePubDTO.setIntro(coursePublicEntity.getIntro());
             coursePubDTO.setTeacherId(coursePublicEntity.getTeacherId());
             coursePubDTO.setWhatDay(coursePublicEntity.getWhatDay());
+            coursePubDTO.setWeekDay(DataHandleUtil.DateToWeek(coursePublicEntity.getWhatDay()));
 
             coursePubDTO.setTeacherName(teacherEntity.getName());
             coursePubDTO.setTeacherIntro(teacherEntity.getIntro());
@@ -72,6 +75,7 @@ public class CoursePubService {
         coursePubDTO.setIntro(coursePublicEntity.getIntro());
         coursePubDTO.setTeacherId(coursePublicEntity.getTeacherId());
         coursePubDTO.setWhatDay(coursePublicEntity.getWhatDay());
+        coursePubDTO.setWeekDay(DataHandleUtil.DateToWeek(coursePublicEntity.getWhatDay()));
 
         coursePubDTO.setTeacherName(teacherEntity.getName());
         coursePubDTO.setTeacherIntro(teacherEntity.getIntro());
@@ -102,6 +106,7 @@ public class CoursePubService {
         coursePubDTO.setIntro(coursePublicEntity.getIntro());
         coursePubDTO.setTeacherId(coursePublicEntity.getTeacherId());
         coursePubDTO.setWhatDay(coursePublicEntity.getWhatDay());
+        coursePubDTO.setWeekDay(DataHandleUtil.DateToWeek(coursePublicEntity.getWhatDay()));
 
         coursePubDTO.setTeacherName(teacherEntity.getName());
         coursePubDTO.setTeacherIntro(teacherEntity.getIntro());
@@ -112,7 +117,7 @@ public class CoursePubService {
     }
 
     //通过whatDay获取公共课信息
-    public List<CoursePubDTO> listCoursePubByWhatDay(String whatDay){
+    public List<CoursePubDTO> listCoursePubByWhatDay(Date whatDay){
         List<CoursePublicEntity> coursePublicEntities=coursePubDao.findByWhatDay(whatDay);
         List<CoursePubDTO> coursePubDTOS=new ArrayList<>();
 
@@ -130,6 +135,7 @@ public class CoursePubService {
             coursePubDTO.setIntro(coursePublicEntity.getIntro());
             coursePubDTO.setTeacherId(coursePublicEntity.getTeacherId());
             coursePubDTO.setWhatDay(whatDay);
+            coursePubDTO.setWeekDay(DataHandleUtil.DateToWeek(whatDay));
 
             coursePubDTO.setTeacherName(teacherEntity.getName());
             coursePubDTO.setTeacherIntro(teacherEntity.getIntro());
@@ -174,7 +180,6 @@ public class CoursePubService {
     }
 
     //新增一个公共课
-    //还未实现判空处理
     public boolean addCoursePublic(CoursePublicEntity coursePublicEntity){
         //如果添加的课程不存在这个老师返回false
         if (teacherService.getTeacherById(coursePublicEntity.getTeacherId())==null)
@@ -185,7 +190,6 @@ public class CoursePubService {
             return false;
 
         try{
-            //对字段的判空处理
             coursePubDao.save(coursePublicEntity);
         }catch (Exception e){
             System.out.println("新增公共课出错："+e.getCause()+" "+e.getMessage());

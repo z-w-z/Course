@@ -1,6 +1,7 @@
 package com.course.demo.Entity;
 
 import javax.persistence.*;
+import java.sql.Date;
 
 @Entity
 @Table(name = "course_public", schema = "course", catalog = "")
@@ -14,7 +15,7 @@ public class CoursePublicEntity {
     private String dateRange;
     private String addr;
     private String intro;
-    private String whatDay;
+    private Date whatDay;
 
     @Id
     @Column(name = "id")
@@ -108,11 +109,11 @@ public class CoursePublicEntity {
 
     @Basic
     @Column(name = "what_day")
-    public String getWhatDay() {
+    public Date getWhatDay() {
         return whatDay;
     }
 
-    public void setWhatDay(String whatDay) {
+    public void setWhatDay(Date whatDay) {
         this.whatDay = whatDay;
     }
 
