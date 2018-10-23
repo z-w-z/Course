@@ -32,6 +32,7 @@ public class CoursePubService {
             TeacherEntity teacherEntity = teacherService.getTeacherById(coursePublicEntity.getTeacherId());
             //new一个DTO信息
             CoursePubDTO coursePubDTO=new CoursePubDTO();
+            coursePubDTO.setId(coursePublicEntity.getId());
             coursePubDTO.setName(coursePublicEntity.getName());
             coursePubDTO.setType(coursePublicEntity.getType());
             coursePubDTO.setMaxPerson(coursePublicEntity.getMaxPerson());
@@ -66,6 +67,7 @@ public class CoursePubService {
         TeacherEntity teacherEntity = teacherService.getTeacherById(coursePublicEntity.getTeacherId());
         //new一个DTO信息
         CoursePubDTO coursePubDTO=new CoursePubDTO();
+        coursePubDTO.setId(coursePublicEntity.getId());
         coursePubDTO.setName(coursePublicEntity.getName());
         coursePubDTO.setType(coursePublicEntity.getType());
         coursePubDTO.setMaxPerson(coursePublicEntity.getMaxPerson());
@@ -97,6 +99,7 @@ public class CoursePubService {
         TeacherEntity teacherEntity = teacherService.getTeacherById(coursePublicEntity.getTeacherId());
         //new一个DTO信息
         CoursePubDTO coursePubDTO=new CoursePubDTO();
+        coursePubDTO.setId(coursePublicEntity.getId());
         coursePubDTO.setName(coursePublicEntity.getName());
         coursePubDTO.setType(coursePublicEntity.getType());
         coursePubDTO.setMaxPerson(coursePublicEntity.getMaxPerson());
@@ -126,6 +129,7 @@ public class CoursePubService {
             TeacherEntity teacherEntity = teacherService.getTeacherById(coursePublicEntity.getTeacherId());
             //new一个DTO信息
             CoursePubDTO coursePubDTO=new CoursePubDTO();
+            coursePubDTO.setId(coursePublicEntity.getId());
             coursePubDTO.setName(coursePublicEntity.getName());
             coursePubDTO.setType(coursePublicEntity.getType());
             coursePubDTO.setMaxPerson(coursePublicEntity.getMaxPerson());
@@ -158,6 +162,7 @@ public class CoursePubService {
             TeacherEntity teacherEntity = teacherService.getTeacherById(teacherId);
             //new一个DTO信息
             CoursePubDTO coursePubDTO=new CoursePubDTO();
+            coursePubDTO.setId(coursePublicEntity.getId());
             coursePubDTO.setName(coursePublicEntity.getName());
             coursePubDTO.setType(coursePublicEntity.getType());
             coursePubDTO.setMaxPerson(coursePublicEntity.getMaxPerson());
