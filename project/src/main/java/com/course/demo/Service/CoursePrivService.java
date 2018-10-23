@@ -33,6 +33,8 @@ public class CoursePrivService {
             coursePrivDTO.setName(coursePrivateEntity.getName());
             coursePrivDTO.setPrice(coursePrivateEntity.getPrice());
             coursePrivDTO.setTeacherId(coursePrivateEntity.getTeacherId());
+            coursePrivDTO.setCoursePrivUrl(coursePrivateEntity.getCoursePrivUrl());
+
             coursePrivDTO.setTeacherName(teacherEntity.getName());
             coursePrivDTO.setIntro(teacherEntity.getIntro());
             coursePrivDTO.setPhone(teacherEntity.getPhone());
@@ -59,6 +61,8 @@ public class CoursePrivService {
         coursePrivDTO.setName(coursePrivateEntity.getName());
         coursePrivDTO.setPrice(coursePrivateEntity.getPrice());
         coursePrivDTO.setTeacherId(coursePrivateEntity.getTeacherId());
+        coursePrivDTO.setCoursePrivUrl(coursePrivateEntity.getCoursePrivUrl());
+
         coursePrivDTO.setTeacherName(teacherEntity.getName());
         coursePrivDTO.setIntro(teacherEntity.getIntro());
         coursePrivDTO.setPhone(teacherEntity.getPhone());
@@ -82,6 +86,8 @@ public class CoursePrivService {
         coursePrivDTO.setName(coursePrivateEntity.getName());
         coursePrivDTO.setPrice(coursePrivateEntity.getPrice());
         coursePrivDTO.setTeacherId(coursePrivateEntity.getTeacherId());
+        coursePrivDTO.setCoursePrivUrl(coursePrivateEntity.getCoursePrivUrl());
+
         coursePrivDTO.setTeacherName(teacherEntity.getName());
         coursePrivDTO.setIntro(teacherEntity.getIntro());
         coursePrivDTO.setPhone(teacherEntity.getPhone());
@@ -103,6 +109,8 @@ public class CoursePrivService {
             coursePrivDTO.setName(coursePrivateEntity.getName());
             coursePrivDTO.setPrice(coursePrivateEntity.getPrice());
             coursePrivDTO.setTeacherId(coursePrivateEntity.getTeacherId());
+            coursePrivDTO.setCoursePrivUrl(coursePrivateEntity.getCoursePrivUrl());
+
             coursePrivDTO.setTeacherName(teacherEntity.getName());
             coursePrivDTO.setIntro(teacherEntity.getIntro());
             coursePrivDTO.setPhone(teacherEntity.getPhone());

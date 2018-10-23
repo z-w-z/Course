@@ -9,6 +9,7 @@ public class CoursePrivateEntity {
     private String name;
     private Integer price;
     private Integer teacherId;
+    private String coursePrivUrl;
 
     @Id
     @Column(name = "id")
@@ -50,6 +51,16 @@ public class CoursePrivateEntity {
         this.teacherId = teacherId;
     }
 
+    @Basic
+    @Column(name = "course_priv_url")
+    public String getCoursePrivUrl() {
+        return coursePrivUrl;
+    }
+
+    public void setCoursePrivUrl(String coursePrivUrl) {
+        this.coursePrivUrl = coursePrivUrl;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -61,6 +72,8 @@ public class CoursePrivateEntity {
         if (name != null ? !name.equals(that.name) : that.name != null) return false;
         if (price != null ? !price.equals(that.price) : that.price != null) return false;
         if (teacherId != null ? !teacherId.equals(that.teacherId) : that.teacherId != null) return false;
+        if (coursePrivUrl != null ? !coursePrivUrl.equals(that.coursePrivUrl) : that.coursePrivUrl != null)
+            return false;
 
         return true;
     }
@@ -71,6 +84,7 @@ public class CoursePrivateEntity {
         result = 31 * result + (name != null ? name.hashCode() : 0);
         result = 31 * result + (price != null ? price.hashCode() : 0);
         result = 31 * result + (teacherId != null ? teacherId.hashCode() : 0);
+        result = 31 * result + (coursePrivUrl != null ? coursePrivUrl.hashCode() : 0);
         return result;
     }
 }

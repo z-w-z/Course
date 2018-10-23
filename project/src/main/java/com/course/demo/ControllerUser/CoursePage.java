@@ -24,9 +24,6 @@ public class CoursePage {
     @Autowired
     CoursePrivDao coursePrivDao;
 
-    //返回公共课程
-    //待讨论
-
     //通过日期返回公共课程
     @RequestMapping(value = "listCoursePubByDate",method = RequestMethod.GET)
     @ResponseBody
