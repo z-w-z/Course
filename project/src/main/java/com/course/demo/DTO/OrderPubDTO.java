@@ -4,6 +4,7 @@ import java.sql.Date;
 
 public class OrderPubDTO {
     //订单信息
+    private int id;
     private int coursePubId;
     private int userId;
     private Integer payMoney;
@@ -17,6 +18,14 @@ public class OrderPubDTO {
     private String coursePubAddr;
     private Date coursePubWhatDay;
     private String coursePubWeekDay;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public int getCoursePubId() {
         return coursePubId;

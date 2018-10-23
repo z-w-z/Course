@@ -41,7 +41,7 @@ public class CoursePage {
     //返回所有私教课程，简约版信息
     @RequestMapping(value = "/listAllCoursePriv",method = RequestMethod.GET)
     @ResponseBody
-    public List<CoursePrivateEntity> listCoursePriv(){
+    public List<CoursePrivateEntity> listAllCoursePriv(){
         return coursePrivDao.findAll();
     }
 
