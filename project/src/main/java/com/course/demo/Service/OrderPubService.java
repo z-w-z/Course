@@ -21,6 +21,34 @@ public class OrderPubService {
     @Autowired
     CoursePubDao coursePubDao;
 
+    //通过id查找
+    public OrderPubDTO getById(int id) {
+        OrderPublicEntity orderPublicEntity = orderPubDao.findById(id);
+
+        CoursePublicEntity coursePublicEntity = coursePubDao.findById(orderPublicEntity.getCoursePubId());
+
+        //如果不存在该课程，跳过
+        if (coursePublicEntity == null)
+            return new OrderPubDTO();
+
+        //新建一个DTO
+        OrderPubDTO orderPubDTO = new OrderPubDTO();
+        orderPubDTO.setCoursePubId(id);
+        orderPubDTO.setUserId(orderPublicEntity.getUserId());
+        orderPubDTO.setPayMoney(orderPublicEntity.getPayMoney());
+        orderPubDTO.setStatus(orderPubDTO.getStatus());
+        orderPubDTO.setPeopleNumber(orderPublicEntity.getPeopleNumber());
+
+        orderPubDTO.setCoursePubName(coursePublicEntity.getName());
+        orderPubDTO.setCoursePubPrice(coursePublicEntity.getPrice());
+        orderPubDTO.setCoursePubDateRange(coursePublicEntity.getDateRange());
+        orderPubDTO.setCoursePubAddr(coursePublicEntity.getAddr());
+        orderPubDTO.setCoursePubWhatDay(coursePublicEntity.getWhatDay());
+        orderPubDTO.setCoursePubWeekDay(DataHandleUtil.DateToWeek(coursePublicEntity.getWhatDay()));
+
+        return orderPubDTO;
+    }
+
     //根据用户id查找
     public List<OrderPubDTO> getByUserId(int userId) {
         List<OrderPublicEntity> orderPublicEntities=orderPubDao.findByUserId(userId);

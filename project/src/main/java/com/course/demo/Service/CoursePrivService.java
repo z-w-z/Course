@@ -20,7 +20,7 @@ public class CoursePrivService {
     @Autowired
     TeacherService teacherService;
 
-    //查找所有私教课
+    //查找所有私教课详细信息
     public List<CoursePrivDTO> listAllCoursePrivDTO(){
         List<CoursePrivateEntity> coursePrivateEntities=coursePrivDao.findAll();
         List<CoursePrivDTO> coursePrivDTOS=new ArrayList<>();

@@ -6,6 +6,7 @@ import java.util.List;
 public interface OrderPubDao extends JpaRepository<OrderPublicEntity,Integer> {
      List<OrderPublicEntity> findByUserIdAndCoursePubId(int UserId,int CourseId);
      void deleteByUserIdAndCoursePubId(int userId,int courseId);
-     List<OrderPublicEntity>findByStatus(int status);
-     List<OrderPublicEntity>findByUserId(int userId);
+     List<OrderPublicEntity> findByStatus(int status);
+     List<OrderPublicEntity> findByUserId(int userId);
+     OrderPublicEntity findById(int id);
 }

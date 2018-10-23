@@ -20,19 +20,6 @@ public class OrderPrivService {
     @Autowired
     TeacherService teacherService;
 
-    //订单信息
-    private int coursePrivId;
-    private int userId;
-    private Integer totalClass;
-
-    //私教课信息
-    private String coursePrivName;
-    private Integer coursePrivPrice;
-    private Integer teacherId;
-
-    //老师信息
-    private String teacherName;
-
     //返回所有私教课信息
     public List<OrderPrivDTO> listAllOrderPrivate() {
         List<OrderPrivateEntity> orderPrivateEntities=orderPrivDao.findAll();
@@ -94,7 +81,7 @@ public class OrderPrivService {
     }
 
     //根据用户id找私教订单
-    public List<OrderPrivDTO> getByUserId(int userId){
+    public List<OrderPrivDTO> listByUserId(int userId){
         List<OrderPrivateEntity> orderPrivateEntities=orderPrivDao.findByUserId(userId);
         List<OrderPrivDTO> orderPrivDTOS=new ArrayList<>();
 
@@ -127,7 +114,7 @@ public class OrderPrivService {
     }
 
     //根据课程id找私教订单
-    public List<OrderPrivDTO> getByCourseId(int coursePrivId) {
+    public List<OrderPrivDTO> listByCourseId(int coursePrivId) {
         List<OrderPrivateEntity> orderPrivateEntities=orderPrivDao.findByCoursePrivId(coursePrivId);
         List<OrderPrivDTO> orderPrivDTOS=new ArrayList<>();
 
